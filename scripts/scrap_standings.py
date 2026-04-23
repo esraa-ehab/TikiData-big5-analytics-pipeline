@@ -42,3 +42,32 @@ def scrap_standing(url):
     standings_df = pd.DataFrame(rows, columns=column_names)
 
     return standings_df
+
+leagues = {
+    "Premier League": (9, "Premier-League"),
+    "La Liga": (12, "La-Liga"),
+    "Serie A": (11, "Serie-A"),
+    "Bundesliga": (20, "Bundesliga"),
+    "Ligue 1": (13, "Ligue-1")
+}
+
+leagues_dict = {}
+
+for league in leagues.items():
+    for season in range(2016, 2026, 1):
+        print(f"League: {league[0]}, Season: {season}")
+        base_url = f"https://fbref.com/en/comps/{league[1][0]}/{season-1}-{season}/{season-1}-{season}-{league[1][1]}-Stats"
+
+        data = scrap_standing(base_url, league[0], season)
+
+        leagues_dict[str(league[0])+str(season)] = data
+        print(f'Scraping {league[0]} {season} done')
+
+    print("\n\n")
+
+league_dict_values = list(leagues_dict.values())
+
+leagues_df = league_dict_values[0]
+
+for i in league_dict_values[1:]:
+    leagues_df = pd.concat([leagues_df, i])

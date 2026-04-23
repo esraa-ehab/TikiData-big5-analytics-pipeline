@@ -16,3 +16,5 @@ def create_leagues():
     league_table.sort_values(by=["League_name", "Season_year"])
 
     return league_table
+
+create_leagues().to_csv("Scrapped_data\league_table.csv")

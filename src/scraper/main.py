@@ -11,11 +11,11 @@ Usage:
 
 import sys
 
-from scrape_standings  import scrape_all_standings
-from scrape_players    import scrape_all_players
-from scrape_matches    import scrape_all_matches
-from create_dimensions import create_leagues, create_teams, create_formations
-from config import OUTPUT_DIR
+from src.scraper.scrape_standings  import scrape_all_standings
+from src.scraper.scrape_players    import scrape_all_players
+from src.scraper.scrape_matches    import scrape_all_matches
+from src.scraper.create_dimensions import create_leagues, create_teams, create_formations
+from src.scraper.config import OUTPUT_DIR
 
 
 SCRAPERS = {

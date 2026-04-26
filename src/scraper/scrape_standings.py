@@ -1,26 +1,23 @@
 """
-Scrape player wages from FBref.
+Scrape league standings from FBref.
 """
 
-import warnings
 import pandas as pd
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from config import LEAGUES, SEASONS, OUTPUT_DIR
-from driver import create_driver
-
-warnings.filterwarnings("ignore")
+from src.scraper.config import LEAGUES, SEASONS, OUTPUT_DIR
+from src.scraper.driver import create_driver
 
 
 
-def scrap_players(driver, url: str, season: int) -> pd.DataFrame:
+def scrap_standing(driver, url: str, league: str, season: int) -> pd.DataFrame:
     driver.get(url)
 
     wait = WebDriverWait(driver, 60)
     table = wait.until(
-        EC.presence_of_element_located((By.ID, "player_wages"))
+        EC.presence_of_element_located((By.CLASS_NAME, "stats_table"))
     )
 
     header = table.find_element(By.TAG_NAME, "thead")
@@ -32,21 +29,19 @@ def scrap_players(driver, url: str, season: int) -> pd.DataFrame:
     for i in body.find_elements(By.TAG_NAME, "tr"):
         row = [i.find_element(By.TAG_NAME, "th").text]
         row_values = i.find_elements(By.TAG_NAME, "td")
-
-        if len(row_values) == 0:
-            continue
-
         row.append(row_values[0].text)
         for j in row_values[1:]:
             row.append(j.text)
         rows.append(row)
 
-    players_df = pd.DataFrame(rows, columns=column_names)
-    players_df["Season"] = season
-    return players_df
+    standings_df = pd.DataFrame(rows, columns=column_names)
+    standings_df["Season"] = season
+    standings_df["League"] = league
+    return standings_df
 
 
-def scrape_all_players() -> pd.DataFrame:
+
+def scrape_all_standings() -> pd.DataFrame:
     driver = create_driver(version_main=147)
     leagues_dict = {}
 
@@ -56,10 +51,10 @@ def scrape_all_players() -> pd.DataFrame:
                 print(f"League: {league_name}, Season: {season}")
                 url = (
                     f"https://fbref.com/en/comps/{league_id}"
-                    f"/{season-1}-{season}/wages"
-                    f"/{season-1}-{season}-{league_slug}-Wages"
+                    f"/{season-1}-{season}"
+                    f"/{season-1}-{season}-{league_slug}-Stats"
                 )
-                data = scrap_players(driver, url, season)
+                data = scrap_standing(driver, url, league_name, season)
                 leagues_dict[f"{league_name}{season}"] = data
                 print(f"Scraping {league_name} {season} done")
             print("\n")
@@ -71,7 +66,7 @@ def scrape_all_players() -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    df = scrape_all_players()
-    out = f"{OUTPUT_DIR}/players_data.csv"
+    df = scrape_all_standings()
+    out = f"{OUTPUT_DIR}/standings_data.csv"
     df.to_csv(out, index=False)
     print(f"Saved → {out}")

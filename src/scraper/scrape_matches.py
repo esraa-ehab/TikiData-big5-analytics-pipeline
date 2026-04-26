@@ -10,7 +10,7 @@ from tqdm import tqdm
 
 import soccerdata as sd
 
-from config import SOCCERDATA_LEAGUES, SEASONS, OUTPUT_DIR
+from src.scraper.config import SOCCERDATA_LEAGUES, SEASONS, OUTPUT_DIR
 
 warnings.filterwarnings("ignore", category=FutureWarning)
 logging.getLogger("soccerdata").setLevel(logging.ERROR)

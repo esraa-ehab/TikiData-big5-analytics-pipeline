@@ -1,0 +1,13 @@
+pyproject.toml
+src/scraper/config.py
+src/scraper/create_dimensions.py
+src/scraper/driver.py
+src/scraper/main.py
+src/scraper/scrape_matches.py
+src/scraper/scrape_players.py
+src/scraper/scrape_standings.py
+src/tikidata.egg-info/PKG-INFO
+src/tikidata.egg-info/SOURCES.txt
+src/tikidata.egg-info/dependency_links.txt
+src/tikidata.egg-info/requires.txt
+src/tikidata.egg-info/top_level.txt

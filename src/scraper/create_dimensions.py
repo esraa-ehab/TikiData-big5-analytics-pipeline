@@ -7,7 +7,7 @@ Build static dimension tables:
 
 import pandas as pd
 
-from config import (
+from src.scraper.config import (
     LEAGUE_IDS, LEAGUE_NAMES_DW, COUNTRIES, SEASONS, OUTPUT_DIR
 )
 

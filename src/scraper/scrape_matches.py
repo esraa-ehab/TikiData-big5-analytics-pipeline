@@ -46,11 +46,11 @@ def scrape_all_matches(max_workers: int = 10) -> pd.DataFrame:
             if res is not None:
                 results.append(res)
 
-    return pd.concat(results, ignore_index=True)
+    return pd.concat(results, ignore_index=False)
 
 
 if __name__ == "__main__":
     df = scrape_all_matches()
     out = f"{OUTPUT_DIR}/matches_table.csv"
-    df.to_csv(out, index=False)
+    df.to_csv(out)
     print(f"Saved → {out}")

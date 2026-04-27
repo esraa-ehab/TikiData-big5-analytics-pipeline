@@ -282,3 +282,99 @@ https://docs.getdbt.com/docs/configure-your-profile
 {"data":{},"info":{"category":"","code":"","extra":{},"invocation_id":"019dca89-c9e0-7903-b572-9e329fd97651","level":"debug","msg":"No active cloud project configured, skipping remote license","name":"Generic","pid":24035,"thread":"tokio-rt-worker","ts":"2026-04-26T16:05:21.117223Z"}}
 {"data":{"columns":[],"is_inline":true,"node_name":"license_info","output_format":"json","preview":"{\n  \"status\": \"not_found\",\n  \"licensing_enabled\": true\n}","unique_id":"license.info"},"info":{"category":"","code":"Q041","extra":{},"invocation_id":"019dca89-c9e0-7903-b572-9e329fd97651","level":"info","msg":"{\n  \"status\": \"not_found\",\n  \"licensing_enabled\": true\n}","name":"ShowNode","pid":24035,"thread":"tokio-rt-worker","ts":"2026-04-26T16:05:21.118974Z"}}
 {"data":{"completed_at":"2026-04-26T16:05:22.123670Z","elapsed":1.0194549560546875,"success":true},"info":{"category":"","code":"Q039","extra":{},"invocation_id":"019dca89-c9e0-7903-b572-9e329fd97651","level":"info","msg":"\n==================== Execution Summary =====================\nFinished 'license' successfully [1.0s]","name":"CommandCompleted","pid":24035,"thread":"tokio-rt-worker","ts":"2026-04-26T16:05:22.125185Z"}}
+{"data":{"log_version":3,"version":"=2.0.0-preview.173"},"info":{"category":"","code":"A001","extra":{},"invocation_id":"019dcb11-c2d6-7933-8a5b-7c10f815afbb","level":"info","msg":"Running with dbt-fusion=2.0.0-preview.173","name":"MainReportVersion","pid":34562,"thread":"tokio-rt-worker","ts":"2026-04-26T18:33:52.097267Z"}}
+{"data":{"args":{"debug":"false","invocation_command":"/Users/user/.local/bin/dbt license info --json --log-format json","log_format":"json","quiet":"false","write_json":"true"}},"info":{"category":"","code":"A002","extra":{},"invocation_id":"019dcb11-c2d6-7933-8a5b-7c10f815afbb","level":"debug","msg":"running dbt-fusion with argumets {\"command\":\"license\",\"vars\":\"{}\",\"limit\":\"10\",\"debug\":false,\"log_format\":\"json\",\"quiet\":false,\"write_json\":true,\"write_catalog\":false}","name":"MainReportArgs","pid":34562,"thread":"tokio-rt-worker","ts":"2026-04-26T18:33:52.097293Z"}}
+{"data":{},"info":{"category":"","code":"","extra":{},"invocation_id":"019dcb11-c2d6-7933-8a5b-7c10f815afbb","level":"debug","msg":"No active cloud project configured, skipping remote license","name":"Generic","pid":34562,"thread":"tokio-rt-worker","ts":"2026-04-26T18:33:52.101520Z"}}
+{"data":{"columns":[],"is_inline":true,"node_name":"license_info","output_format":"json","preview":"{\n  \"status\": \"not_found\",\n  \"licensing_enabled\": true\n}","unique_id":"license.info"},"info":{"category":"","code":"Q041","extra":{},"invocation_id":"019dcb11-c2d6-7933-8a5b-7c10f815afbb","level":"info","msg":"{\n  \"status\": \"not_found\",\n  \"licensing_enabled\": true\n}","name":"ShowNode","pid":34562,"thread":"tokio-rt-worker","ts":"2026-04-26T18:33:52.102581Z"}}
+{"data":{"completed_at":"2026-04-26T18:33:52.434657Z","elapsed":0.3399820029735565,"success":true},"info":{"category":"","code":"Q039","extra":{},"invocation_id":"019dcb11-c2d6-7933-8a5b-7c10f815afbb","level":"info","msg":"\n==================== Execution Summary =====================\nFinished 'license' successfully [339ms]","name":"CommandCompleted","pid":34562,"thread":"tokio-rt-worker","ts":"2026-04-26T18:33:52.435431Z"}}
+[0m22:21:21.903822 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1072eb410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a1c7010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a1c7710>]}
+
+
+============================== 22:21:21.913688 | 5e023b0f-12f0-42d9-893c-0cc53c845762 ==============================
+[0m22:21:21.913688 [info ] [MainThread]: Running with dbt=1.11.7
+[0m22:21:21.914838 [debug] [MainThread]: running dbt with arguments {'use_colors': 'True', 'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'partial_parse': 'True', 'log_path': 'logs', 'profiles_dir': '/Users/user/.dbt', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'indirect_selection': 'eager', 'write_json': 'True', 'warn_error': 'None', 'log_cache_events': 'False', 'target_path': 'None', 'quiet': 'False', 'fail_fast': 'False', 'cache_selected_only': 'False', 'empty': 'None', 'log_format': 'default', 'use_experimental_parser': 'False', 'invocation_command': 'dbt debug', 'printer_width': '80', 'debug': 'False'}
+[0m22:21:21.940688 [info ] [MainThread]: dbt version: 1.11.7
+[0m22:21:21.941480 [info ] [MainThread]: python version: 3.11.7
+[0m22:21:21.941989 [info ] [MainThread]: python path: /Users/user/Documents/TikiData/.venv/bin/python3
+[0m22:21:21.942499 [info ] [MainThread]: os info: macOS-10.16-x86_64-i386-64bit
+[0m22:21:22.460521 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m22:21:22.461233 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m22:21:22.461695 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m22:21:22.558826 [info ] [MainThread]: Using profiles dir at /Users/user/.dbt
+[0m22:21:22.559552 [info ] [MainThread]: Using profiles.yml file at /Users/user/.dbt/profiles.yml
+[0m22:21:22.560083 [info ] [MainThread]: Using dbt_project.yml file at /Users/user/Documents/TikiData/dbt_project.yml
+[0m22:21:22.561017 [info ] [MainThread]: adapter type: snowflake
+[0m22:21:22.561500 [info ] [MainThread]: adapter version: 1.11.3
+[0m22:21:22.561978 [info ] [MainThread]: Configuration:
+[0m22:21:22.562435 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m22:21:22.562870 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m22:21:22.563306 [info ] [MainThread]: Required dependencies:
+[0m22:21:22.563822 [debug] [MainThread]: Executing "git --help"
+[0m22:21:22.595494 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m22:21:22.597547 [debug] [MainThread]: STDERR: "b''"
+[0m22:21:22.598469 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m22:21:22.599096 [info ] [MainThread]: Connection:
+[0m22:21:22.599644 [info ] [MainThread]:   account: qub34967
+[0m22:21:22.600137 [info ] [MainThread]:   user: dbt_snowflk
+[0m22:21:22.600554 [info ] [MainThread]:   database: finance_db
+[0m22:21:22.600969 [info ] [MainThread]:   warehouse: finance_wh
+[0m22:21:22.601399 [info ] [MainThread]:   role: accountadmin
+[0m22:21:22.601866 [info ] [MainThread]:   schema: raw
+[0m22:21:22.602284 [info ] [MainThread]:   authenticator: None
+[0m22:21:22.602718 [info ] [MainThread]:   oauth_client_id: None
+[0m22:21:22.603187 [info ] [MainThread]:   query_tag: None
+[0m22:21:22.603648 [info ] [MainThread]:   client_session_keep_alive: False
+[0m22:21:22.604213 [info ] [MainThread]:   host: None
+[0m22:21:22.605013 [info ] [MainThread]:   port: None
+[0m22:21:22.605619 [info ] [MainThread]:   proxy_host: None
+[0m22:21:22.607728 [info ] [MainThread]:   proxy_port: None
+[0m22:21:22.608959 [info ] [MainThread]:   protocol: None
+[0m22:21:22.609475 [info ] [MainThread]:   connect_retries: 1
+[0m22:21:22.610092 [info ] [MainThread]:   connect_timeout: None
+[0m22:21:22.610530 [info ] [MainThread]:   retry_on_database_errors: False
+[0m22:21:22.611282 [info ] [MainThread]:   retry_all: False
+[0m22:21:22.612382 [info ] [MainThread]:   insecure_mode: False
+[0m22:21:22.613309 [info ] [MainThread]:   reuse_connections: True
+[0m22:21:22.624416 [info ] [MainThread]:   s3_stage_vpce_dns_name: None
+[0m22:21:22.648050 [info ] [MainThread]:   platform_detection_timeout_seconds: 0.0
+[0m22:21:22.650173 [info ] [MainThread]: Registered adapter: snowflake=1.11.3
+[0m22:21:22.910094 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m22:21:22.993105 [debug] [MainThread]: Using snowflake connection "debug"
+[0m22:21:22.993663 [debug] [MainThread]: On debug: select 1 as id
+[0m22:21:22.994076 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:21:24.251927 [debug] [MainThread]: Snowflake adapter: Error running SQL: select 1 as id
+[0m22:21:24.252669 [debug] [MainThread]: Snowflake adapter: Rolling back transaction.
+[0m22:21:24.253377 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m22:21:24.254161 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m22:21:24.254723 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </Users/user/Documents/TikiData/dbt_project.yml> not found
+
+[0m22:21:24.255297 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  250001 (08001): Failed to connect to DB: qub34967.snowflakecomputing.com:443. Your free trial has ended and all of your virtual warehouses have been suspended. Add billing information in the Snowflake web UI to continue using the full set of Snowflake features.
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m22:21:24.257617 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 2.474861, "process_in_blocks": "0", "process_kernel_time": 0.808025, "process_mem_max_rss": "147222528", "process_out_blocks": "0", "process_user_time": 2.664916}
+[0m22:21:24.258651 [debug] [MainThread]: Command `dbt debug` failed at 22:21:24.258462 after 2.48 seconds
+[0m22:21:24.259281 [debug] [MainThread]: Connection 'debug' was left open.
+[0m22:21:24.259833 [debug] [MainThread]: On debug: No close available on handle
+[0m22:21:24.260451 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a1a3c90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b3029d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105c99a90>]}
+[0m22:21:24.261256 [debug] [MainThread]: Flushing usage events
+[0m22:21:25.069733 [debug] [MainThread]: An error was encountered while trying to flush usage events
+{"data":{"log_version":3,"version":"=2.0.0-preview.173"},"info":{"category":"","code":"A001","extra":{},"invocation_id":"019dcece-d865-7c70-bd18-1fe840ccb825","level":"info","msg":"Running with dbt-fusion=2.0.0-preview.173","name":"MainReportVersion","pid":45407,"thread":"tokio-rt-worker","ts":"2026-04-27T11:59:15.584517Z"}}
+{"data":{"args":{"debug":"false","invocation_command":"/Users/user/.local/bin/dbt license info --json --log-format json","log_format":"json","quiet":"false","write_json":"true"}},"info":{"category":"","code":"A002","extra":{},"invocation_id":"019dcece-d865-7c70-bd18-1fe840ccb825","level":"debug","msg":"running dbt-fusion with argumets {\"command\":\"license\",\"vars\":\"{}\",\"limit\":\"10\",\"debug\":false,\"log_format\":\"json\",\"quiet\":false,\"write_json\":true,\"write_catalog\":false}","name":"MainReportArgs","pid":45407,"thread":"tokio-rt-worker","ts":"2026-04-27T11:59:15.584598Z"}}
+{"data":{},"info":{"category":"","code":"","extra":{},"invocation_id":"019dcece-d865-7c70-bd18-1fe840ccb825","level":"debug","msg":"No active cloud project configured, skipping remote license","name":"Generic","pid":45407,"thread":"tokio-rt-worker","ts":"2026-04-27T11:59:15.590578Z"}}
+{"data":{"columns":[],"is_inline":true,"node_name":"license_info","output_format":"json","preview":"{\n  \"status\": \"not_found\",\n  \"licensing_enabled\": true\n}","unique_id":"license.info"},"info":{"category":"","code":"Q041","extra":{},"invocation_id":"019dcece-d865-7c70-bd18-1fe840ccb825","level":"info","msg":"{\n  \"status\": \"not_found\",\n  \"licensing_enabled\": true\n}","name":"ShowNode","pid":45407,"thread":"tokio-rt-worker","ts":"2026-04-27T11:59:15.592860Z"}}
+{"data":{"completed_at":"2026-04-27T11:59:16.342219Z","elapsed":0.7611140012741089,"success":true},"info":{"category":"","code":"Q039","extra":{},"invocation_id":"019dcece-d865-7c70-bd18-1fe840ccb825","level":"info","msg":"\n==================== Execution Summary =====================\nFinished 'license' successfully [761ms]","name":"CommandCompleted","pid":45407,"thread":"tokio-rt-worker","ts":"2026-04-27T11:59:16.343256Z"}}
+{"data":{"log_version":3,"version":"=2.0.0-preview.173"},"info":{"category":"","code":"A001","extra":{},"invocation_id":"019dcf59-7549-7630-af00-e4f16a72a170","level":"info","msg":"Running with dbt-fusion=2.0.0-preview.173","name":"MainReportVersion","pid":59783,"thread":"tokio-rt-worker","ts":"2026-04-27T14:30:39.726953Z"}}
+{"data":{"args":{"debug":"false","invocation_command":"/Users/user/.local/bin/dbt license info --json --log-format json","log_format":"json","quiet":"false","write_json":"true"}},"info":{"category":"","code":"A002","extra":{},"invocation_id":"019dcf59-7549-7630-af00-e4f16a72a170","level":"debug","msg":"running dbt-fusion with argumets {\"command\":\"license\",\"vars\":\"{}\",\"limit\":\"10\",\"debug\":false,\"log_format\":\"json\",\"quiet\":false,\"write_json\":true,\"write_catalog\":false}","name":"MainReportArgs","pid":59783,"thread":"tokio-rt-worker","ts":"2026-04-27T14:30:39.727032Z"}}
+{"data":{},"info":{"category":"","code":"","extra":{},"invocation_id":"019dcf59-7549-7630-af00-e4f16a72a170","level":"debug","msg":"No active cloud project configured, skipping remote license","name":"Generic","pid":59783,"thread":"tokio-rt-worker","ts":"2026-04-27T14:30:39.733227Z"}}
+{"data":{"columns":[],"is_inline":true,"node_name":"license_info","output_format":"json","preview":"{\n  \"status\": \"not_found\",\n  \"licensing_enabled\": true\n}","unique_id":"license.info"},"info":{"category":"","code":"Q041","extra":{},"invocation_id":"019dcf59-7549-7630-af00-e4f16a72a170","level":"info","msg":"{\n  \"status\": \"not_found\",\n  \"licensing_enabled\": true\n}","name":"ShowNode","pid":59783,"thread":"tokio-rt-worker","ts":"2026-04-27T14:30:39.735290Z"}}
+{"data":{"completed_at":"2026-04-27T14:30:40.216598Z","elapsed":0.49486398696899414,"success":true},"info":{"category":"","code":"Q039","extra":{},"invocation_id":"019dcf59-7549-7630-af00-e4f16a72a170","level":"info","msg":"\n==================== Execution Summary =====================\nFinished 'license' successfully [494ms]","name":"CommandCompleted","pid":59783,"thread":"tokio-rt-worker","ts":"2026-04-27T14:30:40.218133Z"}}

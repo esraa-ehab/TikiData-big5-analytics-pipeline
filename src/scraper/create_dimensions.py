@@ -6,8 +6,9 @@ Build static dimension tables:
 """
 
 import pandas as pd
+import numpy as np
 
-from src.scraper.config import (
+from config import (
     LEAGUE_IDS, LEAGUE_NAMES_DW, COUNTRIES, SEASONS, OUTPUT_DIR
 )
 
@@ -55,6 +56,18 @@ def create_formations(matches_path: str | None = None) -> pd.DataFrame:
     return pd.DataFrame(formations, columns=["formations"])
 
 
+# ---------------------------------------------------------------------------
+# Seasons dimension
+# ---------------------------------------------------------------------------
+
+def create_seasons() -> pd.DataFrame:
+    seasons = np.arange(2016, 2026)
+    season_ids = [f"S{i}" for i in range(len(seasons))]
+
+    return pd.DataFrame({
+        "season_id": season_ids,
+        "season": seasons
+    })
 
 if __name__ == "__main__":
     leagues_df = create_leagues()

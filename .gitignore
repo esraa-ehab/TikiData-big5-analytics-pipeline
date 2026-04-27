@@ -2,3 +2,4 @@
 *.pub
 *.DS_Store
 .env
+project/tikidata/profiles.yml

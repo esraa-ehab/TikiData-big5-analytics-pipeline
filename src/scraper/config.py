@@ -25,4 +25,4 @@ SOCCERDATA_LEAGUES = [
 
 SEASONS = list(range(2016, 2026))
 
-OUTPUT_DIR = "Scrapped_data"
+OUTPUT_DIR = "project/tikidata/seeds"

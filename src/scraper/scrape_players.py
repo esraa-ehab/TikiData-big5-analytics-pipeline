@@ -1,19 +1,23 @@
 """
 Scrape player wages from FBref.
+5 threads — one per league, each iterating through all seasons.
 """
 
 import warnings
+import threading
 import pandas as pd
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from src.scraper.config import LEAGUES, SEASONS, OUTPUT_DIR
-from src.scraper.driver import create_driver
+from config import LEAGUES, SEASONS, OUTPUT_DIR
+from driver import create_driver
 
 warnings.filterwarnings("ignore")
 
-
+_results: dict[str, pd.DataFrame] = {}
+_results_lock = threading.Lock()
+_driver_init_lock = threading.Lock()
 
 def scrap_players(driver, url: str, season: int) -> pd.DataFrame:
     driver.get(url)
@@ -46,27 +50,52 @@ def scrap_players(driver, url: str, season: int) -> pd.DataFrame:
     return players_df
 
 
-def scrape_all_players() -> pd.DataFrame:
-    driver = create_driver(version_main=147)
-    leagues_dict = {}
+def _league_worker(league_name: str, league_id: str, league_slug: str) -> None:
+    """Thread target: scrapes every season for one league."""
+    with _driver_init_lock:  # one thread initializes at a time
+        driver = create_driver(version_main=147)
 
     try:
-        for league_name, (league_id, league_slug) in LEAGUES.items():
-            for season in SEASONS:
-                print(f"League: {league_name}, Season: {season}")
-                url = (
-                    f"https://fbref.com/en/comps/{league_id}"
-                    f"/{season-1}-{season}/wages"
-                    f"/{season-1}-{season}-{league_slug}-Wages"
-                )
+        for season in SEASONS:
+            print(f"[{league_name}] Season {season} — starting")
+            url = (
+                f"https://fbref.com/en/comps/{league_id}"
+                f"/{season-1}-{season}/wages"
+                f"/{season-1}-{season}-{league_slug}-Wages"
+            )
+            try:
                 data = scrap_players(driver, url, season)
-                leagues_dict[f"{league_name}{season}"] = data
-                print(f"Scraping {league_name} {season} done")
-            print("\n")
+                key = f"{league_name}{season}"
+                with _results_lock:
+                    _results[key] = data
+                print(f"[{league_name}] Season {season} — done ({len(data)} rows)")
+            except Exception as exc:
+                print(f"[{league_name}] Season {season} — FAILED: {exc}")
     finally:
         driver.quit()
 
-    frames = list(leagues_dict.values())
+
+def scrape_all_players() -> pd.DataFrame:
+    threads = [
+        threading.Thread(
+            target=_league_worker,
+            args=(league_name, league_id, league_slug),
+            name=league_name,
+            daemon=True,
+        )
+        for league_name, (league_id, league_slug) in LEAGUES.items()
+    ]
+
+    for t in threads:
+        t.start()
+
+    for t in threads:
+        t.join()
+
+    frames = list(_results.values())
+    if not frames:
+        raise RuntimeError("No data was collected — check the logs above.")
+
     return pd.concat(frames, ignore_index=True)
 
 

@@ -378,3 +378,29 @@ https://docs.getdbt.com/docs/configure-your-profile
 {"data":{},"info":{"category":"","code":"","extra":{},"invocation_id":"019dcf59-7549-7630-af00-e4f16a72a170","level":"debug","msg":"No active cloud project configured, skipping remote license","name":"Generic","pid":59783,"thread":"tokio-rt-worker","ts":"2026-04-27T14:30:39.733227Z"}}
 {"data":{"columns":[],"is_inline":true,"node_name":"license_info","output_format":"json","preview":"{\n  \"status\": \"not_found\",\n  \"licensing_enabled\": true\n}","unique_id":"license.info"},"info":{"category":"","code":"Q041","extra":{},"invocation_id":"019dcf59-7549-7630-af00-e4f16a72a170","level":"info","msg":"{\n  \"status\": \"not_found\",\n  \"licensing_enabled\": true\n}","name":"ShowNode","pid":59783,"thread":"tokio-rt-worker","ts":"2026-04-27T14:30:39.735290Z"}}
 {"data":{"completed_at":"2026-04-27T14:30:40.216598Z","elapsed":0.49486398696899414,"success":true},"info":{"category":"","code":"Q039","extra":{},"invocation_id":"019dcf59-7549-7630-af00-e4f16a72a170","level":"info","msg":"\n==================== Execution Summary =====================\nFinished 'license' successfully [494ms]","name":"CommandCompleted","pid":59783,"thread":"tokio-rt-worker","ts":"2026-04-27T14:30:40.218133Z"}}
+[0m16:25:49.020388 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 16:25:49.054407 | 3be16bdd-7871-45bc-8bda-6d7a651ec3c2 ==============================
+[0m16:25:49.054407 [info ] [MainThread]: Running with dbt=1.11.8
+[0m16:25:49.055415 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\bodyk\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'invocation_command': 'dbt run --select stg_regions', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m16:25:49.056427 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path D:\epl-analytics\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m16:25:49.057426 [debug] [MainThread]: Command `dbt run` failed at 16:25:49.057426 after 0.14 seconds
+[0m16:25:49.058430 [debug] [MainThread]: Flushing usage events
+[0m17:44:29.761524 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 17:44:29.798508 | 0e90dcf7-40e8-45f6-bda0-7ec77dd54978 ==============================
+[0m17:44:29.798508 [info ] [MainThread]: Running with dbt=1.11.8
+[0m17:44:29.799498 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\bodyk\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt seed --select --for-refresh players_data', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m17:44:29.800527 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path D:\epl-analytics\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m17:44:29.802069 [debug] [MainThread]: Command `dbt seed` failed at 17:44:29.802069 after 0.12 seconds
+[0m17:44:29.802069 [debug] [MainThread]: Flushing usage events

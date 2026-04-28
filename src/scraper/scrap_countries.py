@@ -34,28 +34,15 @@ def scrap_players(driver, url: str, season: int) -> pd.DataFrame:
 
     rows = []
     for i in body.find_elements(By.TAG_NAME, "tr"):
-
-        # skip header/group rows
-        if "class" in i.get_attribute("outerHTML") and "thead" in i.get_attribute("class"):
-            continue
-
+        row = [i.find_element(By.TAG_NAME, "th").text]
         row_values = i.find_elements(By.TAG_NAME, "td")
+
         if len(row_values) == 0:
             continue
 
-        row = [i.find_element(By.TAG_NAME, "th").text]
-
-        try:
-            country = i.find_element(By.CSS_SELECTOR, 'td[data-stat="nationality"] a').get_attribute("href")
-        except:
-            country = None
-
         row.append(row_values[0].text)
-
         for j in row_values[1:]:
             row.append(j.text)
-
-        row[2] = country
         rows.append(row)
 
     players_df = pd.DataFrame(rows, columns=column_names)

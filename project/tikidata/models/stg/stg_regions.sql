@@ -1,4 +1,4 @@
-with stg_region as (
+with stg_regions as (
     select
         case 
             when "region" = 'Asia'       then 'AS'
@@ -14,4 +14,4 @@ with stg_region as (
 )
 
 select * 
-from stg_region;
+from stg_regions

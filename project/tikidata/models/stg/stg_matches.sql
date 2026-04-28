@@ -20,4 +20,4 @@ select
     "season_2" as season_id,
     "league" as league_id
 from
-    stage_matches
+    stg_matches

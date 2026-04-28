@@ -17,6 +17,6 @@ select
     "Pts/MP" as points_per_matches,
     "Attendance" as attendance,
     "Top Team Scorer" as top_scorer,
-    "Goalkeeper" as goal_keeper
+    "Goalkeeper" as goalkeeper
 from
     stg_standings

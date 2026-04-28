@@ -4,9 +4,9 @@ with stg_standings as (
 
 select 
     "Rk" as rank,
-    "Squad" as team_id,
-    "League" as league_id,
-    "Season" as season_id,
+    "Squad" as team_name,
+    "League" as league_name,
+    "Season" as season,
     "MP" as matches_played,
     "W" as wins,
     "D" as draws,
@@ -16,7 +16,8 @@ select
     "Pts" as points,
     "Pts/MP" as points_per_matches,
     "Attendance" as attendance,
-    "Top Team Scorer" as top_scorer,
+    split("Top Team Scorer", ' - ')[0] as top_scorer,
+    split("Top Team Scorer", ' - ')[1] as top_scorer_goals,
     "Goalkeeper" as goalkeeper
 from
     stg_standings

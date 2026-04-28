@@ -28,5 +28,5 @@ sources:
       - name: raw_teams
         identifier: teams_table
 
-      - name: raw_teams
-        identifier: 
+      - name: raw_positions
+        identifier: stg_positions

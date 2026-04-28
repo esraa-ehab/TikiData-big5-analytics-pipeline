@@ -59,6 +59,7 @@ def scrap_players(driver, url: str, season: int) -> pd.DataFrame:
         rows.append(row)
 
     players_df = pd.DataFrame(rows, columns=column_names)
+
     players_df["Season"] = season
     return players_df
 
@@ -115,5 +116,28 @@ def scrape_all_players() -> pd.DataFrame:
 if __name__ == "__main__":
     df = scrape_all_players()
     out = f"{OUTPUT_DIR}/players_data.csv"
+    nations_code = []
+    nations = []
+
+    for i,j in df.iterrows():
+        nation = j['Nation']
+        nation = str(nation)
+        if len(nation.split('/')) > 1:
+            nations.append(nation.split('/')[-1].split('-')[0])
+            nations_code.append(nation.split('/')[-2])
+        else:
+            nations.append('Unknown')
+            nations_code.append('Unknown')
+
+    df['Nation'] = pd.Series(nations_code)
+
+    country_data = pd.DataFrame()
+    country_data['Nation_codes'] = pd.Series(nations_code)
+    country_data['Nation'] = pd.Series(nations)
+
+    country_data = country_data.drop_duplicates()
+
+    country_data.to_csv(f'{OUTPUT_DIR}/countries.csv')
+
     df.to_csv(out, index=False)
     print(f"Saved → {out}")

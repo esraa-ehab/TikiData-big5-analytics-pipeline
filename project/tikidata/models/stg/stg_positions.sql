@@ -32,4 +32,4 @@ select
         when 'SS' then 'Second Striker'
         else 'Unknown'
     end as position_full_form
-from stg_positions;
+from stg_positions

@@ -1,0 +1,32 @@
+version: 2
+
+sources: 
+  - name: RAW
+    schema: DBT_DEV_RAW_TABLES
+    tables:
+      - name: raw_countries
+        identifier: countries
+
+      - name: raw_formations
+        identifier: formations_table
+
+      - name: raw_leagues
+        identifier: leagues_table
+
+      - name: raw_matches
+        identifier: matches_table
+
+      - name: raw_players
+        identifier: players_ata
+
+      - name: raw_seasons
+        identifier: seasons_table 
+
+      - name: raw_standings
+        identifier: standings_tale
+
+      - name: raw_teams
+        identifier: teams_table
+
+      - name: raw_teams
+        identifier: 

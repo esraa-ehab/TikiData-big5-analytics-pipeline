@@ -1,5 +1,5 @@
 with stg_players as (
-    select * from {{ source('raw', 'raw_players') }}
+    select * from {{ source('RAW', 'raw_players') }}
 )
 
 select

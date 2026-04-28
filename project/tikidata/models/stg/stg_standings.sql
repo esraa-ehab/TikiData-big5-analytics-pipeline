@@ -1,5 +1,5 @@
 with stg_standings as (
-    select * from {{ source('raw', 'raw_standings') }}
+    select * from {{ source('RAW', 'raw_standings') }}
 )
 
 select 

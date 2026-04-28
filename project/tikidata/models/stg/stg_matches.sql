@@ -1,5 +1,5 @@
 with stg_matches as (
-    select * from {{ source('raw', 'raw_matches') }}
+    select * from {{ source('RAW','raw_matches') }}
 )
 
 select 

@@ -17,13 +17,13 @@ sources:
         identifier: matches_table
 
       - name: raw_players
-        identifier: players_ata
+        identifier: players_data
 
       - name: raw_seasons
         identifier: seasons_table 
 
       - name: raw_standings
-        identifier: standings_tale
+        identifier: standings_table
 
       - name: raw_teams
         identifier: teams_table

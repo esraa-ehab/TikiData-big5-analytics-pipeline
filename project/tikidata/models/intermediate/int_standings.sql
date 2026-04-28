@@ -18,16 +18,16 @@ with int_standings as (
         replace(stnd.top_scorer_goals, '"', '') as top_scorer_goals,
         p1.player_id as goalkeeper_id
         
-    from {{ ref(STG_STANDINGS) }} as stnd
-    join {{ ref(STG_LEAGUES) }} as lg 
+    from {{ ref('stg_standings') }} as stnd
+    join {{ ref('stg_leagues') }} as lg 
         on stnd.league_name = lg.league_name
-    join {{ ref(STG_SEASONS) }} as szn
+    join {{ ref('stg_seasons') }} as szn
         on stnd.season = szn."season"
-    join {{ ref(STG_TEAMS) }} as team
+    join {{ ref('stg_teams') }} as team
         on stnd.team_name = team.team_name
-    join {{ ref(STG_UNIQUE_PLAYERS) }} as p
+    join {{ ref('stg_unique_players') }} as p
         on stnd.top_scorer = p.player_name
-    join {{ ref(STG_UNIQUE_PLAYERS) }} as p1
+    join {{ ref('stg_unique_players') }} as p1
         on stnd.goalkeeper = p1.player_name
 )
 select * from int_standings

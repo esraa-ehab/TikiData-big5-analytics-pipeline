@@ -1,3 +1,9 @@
+{{
+  config(
+    materialized = 'view'
+    )
+}}
+
 with stg_standings as (
     select * from {{ source('RAW', 'raw_standings') }}
 )

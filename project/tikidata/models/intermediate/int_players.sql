@@ -5,8 +5,8 @@ with int_player as (
         p.rank,
         lg.league_id,
         p.country_id,
-        replace(p.main_position, '"', '') as main_position,
-        replace(p.second_position, '"', '') as second_position,
+        pos.position_id as main_position_id,
+        pos1.position_id as second_position_id,
         tm.team_id,
         p.birth_year,
         to_number(replace(regexp_substr(p.weekly_wages, '£\\s*([0-9,]+)', 1, 1, 'e', 1), ',', '')) as weekly_wage_gbp,
@@ -14,14 +14,18 @@ with int_player as (
         to_number(replace(regexp_substr(p.weekly_wages, '\\$\\s*([0-9,]+)', 1, 1, 'e', 1), ',', '')) as weekly_wage_usd,
         szn."season_id" 
         
-    from DEV.DBT_DEV.STG_PLAYERS as p
-    join DEV.DBT_DEV.STG_UNIQUE_PLAYERS as up
+    from {{ ref('stg_players') }} as p
+    join {{ ref('stg_unique_players') }} as up
         on p.player_name = up.player_name
-    join DEV.DBT_DEV.STG_TEAMS as tm
+    join {{ ref('stg_teams') }} as tm
         on p.team_name = tm.team_name
-    join DEV.DBT_DEV.STG_LEAGUES as lg
+    join {{ ref('stg_leagues') }} as lg
         on tm.league_name = lg.league_name
-    join DEV.DBT_DEV.STG_SEASONS as szn
-        on p.season_id = szn."season"
+    join {{ ref('stg_seasons') }} as szn
+        on p.season = szn."season"
+    left join {{ ref('stg_positions') }} as pos
+        on pos.position_name = replace(p.main_position, '"', '')
+    left join {{ ref('stg_positions') }} as pos1
+        on pos1.position_name = replace(p.second_position, '"', '')
 )
 select * from int_player

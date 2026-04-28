@@ -3,8 +3,8 @@ with int_teams as (
         tm.team_id,
         tm.team_name,
         lg.league_id
-    from {{ ref(STG_TEAMS) }} as tm
-    join {{ ref(STG_LEAGUES) }} as lg
+    from {{ ref('stg_teams') }} as tm
+    join {{ ref('stg_leagues') }} as lg
         on tm.league_name = lg.league_name
 )
 select * from int_teams

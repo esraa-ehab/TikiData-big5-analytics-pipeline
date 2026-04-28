@@ -1,7 +1,12 @@
+{{
+  config(
+    materialized = 'view'
+    )
+}}
+
 with stg_matches as (
     select * from {{ source('RAW','raw_matches') }}
 )
-
 select 
     ROW_NUMBER() over (order by "date") as match_id,
     "date" as match_date,

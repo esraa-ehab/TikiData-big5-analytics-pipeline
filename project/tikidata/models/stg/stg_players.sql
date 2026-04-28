@@ -1,3 +1,9 @@
+{{
+  config(
+    materialized = 'view'
+    )
+}}
+
 with stg_players as (
     select * from {{ source('RAW', 'raw_players') }}
 )
@@ -12,6 +18,6 @@ select
     "Squad" as team_name,
     "Season" - "Age" -1 as birth_year,
     "Weekly Wages" as weekly_wages,
-    "Season" as season_id
+    "Season" as season
 from
     stg_players

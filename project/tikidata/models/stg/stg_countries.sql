@@ -1,5 +1,5 @@
 with stg_countries as(
-    select "Nation_code" as country_id,
+    select "Nation_codes" as country_id,
            "Nation" as country_name
     from {{ source('RAW', 'raw_countries') }}
 )

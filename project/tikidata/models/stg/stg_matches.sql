@@ -18,6 +18,6 @@ select
     "Formation" as team_formation_id,
     "Opp Formation" as opponent_formation_id,
     "season_2" as season_id,
-    "league" as league_id
+    "league_2" as league_id
 from
     stg_matches

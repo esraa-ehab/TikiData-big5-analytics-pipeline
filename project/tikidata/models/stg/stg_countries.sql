@@ -5,6 +5,6 @@ with stg_countries as(
            "Latitude" as latitude,
            "Longitude" as longitude,
            "Region Name" as region_name
-    from RAW.DBT_DEV_RAW_TABLES.COUNTRIES
+    from {{ source('raw','raw_countries') }}
 )
 select * from stg_countries

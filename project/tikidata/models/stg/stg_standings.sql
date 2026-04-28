@@ -1,5 +1,5 @@
 with stg_standings as (
-    select * from RAW.DBT_DEV_RAW_TABLES.STANDINGS_DATA
+    select * from {{ source('raw', 'raw_standings') }}
 )
 
 select 

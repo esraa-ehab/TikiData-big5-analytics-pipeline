@@ -4,6 +4,6 @@ with stg_league as (
         "League_name" as league_name,
         "Country" as country,
         "Season_year" as season
-    from RAW.DBT_DEV_RAW_TABLES.LEAGUE_TABLE
+    from {{ source('raw','raw_leagues') }}
 )
 select * from stg_league

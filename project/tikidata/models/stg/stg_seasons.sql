@@ -1,5 +1,5 @@
 with stg_season as (
     select "season_id", "season"
-    from RAW.DBT_DEV_RAW_TABLES.SEASONS_TABLE
+    from {{ source('raw', 'raw_seasons') }}
 )
 select * from stg_season

@@ -1,6 +1,6 @@
 with dim_countries as (
     select
-        row_number() over(order by country_id) as country_sk,
+        {{ dbt_utils.generate_surrogate_key(['country_id']) }} as country_sk,
         *
     from
         {{ ref('int_countries') }}

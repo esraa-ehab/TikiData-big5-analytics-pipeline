@@ -24,7 +24,7 @@ with int_standings as (
     join {{ ref('stg_seasons') }} as szn
         on stnd.season = szn.season
     join {{ ref('stg_teams') }} as team
-        on stnd.team_name = team.team_name
+        on stnd.team_name = team.team_name 
     join {{ ref('stg_unique_players') }} as p
         on stnd.top_scorer = p.player_name
     join {{ ref('stg_unique_players') }} as p1

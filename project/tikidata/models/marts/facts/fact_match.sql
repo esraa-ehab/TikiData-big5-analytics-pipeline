@@ -1,4 +1,4 @@
-with fact_matches as (
+with fact_match as (
     select 
         {{ dbt_utils.generate_surrogate_key(['match_id']) }} as match_sk,
         d.date_sk as date_sk,
@@ -36,4 +36,4 @@ with fact_matches as (
             on p.player_id = m.captain_id
 )
 
-select * from fact_matches
+select * from fact_match

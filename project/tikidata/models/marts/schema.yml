@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_league
+    columns:
+      - name: country_sk
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_country')
+                field: country_sk

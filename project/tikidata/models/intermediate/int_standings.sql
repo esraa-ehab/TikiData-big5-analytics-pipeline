@@ -1,10 +1,10 @@
 with int_standings as (
     select 
         stnd.rank,
-        concat(lg.league_id, team.team_id, szn."season_id") as standing_id,
+        concat(lg.league_id, team.team_id, szn.season_id) as standing_id,
         team.team_id,
         lg.league_id,
-        szn."season_id" as season_id,
+        szn.season_id as season_id,
         stnd.matches_played,
         stnd.points,
         stnd.wins,
@@ -22,7 +22,7 @@ with int_standings as (
     join {{ ref('stg_leagues') }} as lg 
         on stnd.league_name = lg.league_name
     join {{ ref('stg_seasons') }} as szn
-        on stnd.season = szn."season"
+        on stnd.season = szn.season
     join {{ ref('stg_teams') }} as team
         on stnd.team_name = team.team_name
     join {{ ref('stg_unique_players') }} as p

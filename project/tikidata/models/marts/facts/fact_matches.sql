@@ -9,11 +9,11 @@ with fact_matches as (
         f1.formation_sk as formation_sk,
         f2.formation_sk as opp_formation_sk,
         p.player_sk as captain_sk,
-        m.match_time as time,
+        cast(m.match_time as time) as time,
         m.round as round,
         m.venue as venue,
-        m.goals_scored as goals_scored,
-        m.goals_conceded as goals_conceded,
+        cast(m.goals_scored as int) as goals_scored,
+        cast(m.goals_conceded as int) as goals_conceded,
         m.possession as possession,
         m.attendance as attendence
     from

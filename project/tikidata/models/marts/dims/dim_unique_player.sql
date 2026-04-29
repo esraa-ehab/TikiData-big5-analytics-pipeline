@@ -1,4 +1,4 @@
-with dim_player as (
+with dim_unique_player as (
     select 
         {{ dbt_utils.generate_surrogate_key(['player_id', 'player_name']) }} as player_sk,
         p.player_id,
@@ -9,4 +9,4 @@ with dim_player as (
     join {{ ref('dim_country') }} as dc
         on dc.country_id = p.country_id
 )
-select * from dim_player
+select * from dim_unique_player

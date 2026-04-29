@@ -6,6 +6,24 @@ models:
       - name: country_sk
         tests:
           - relationships:
+              arguments: # This is the missing layer
+                to: ref('dim_country')
+                field: country_sk
+
+  - name: dim_player
+    columns:
+      - name: country_sk
+        tests:
+          - relationships:
               arguments:
                 to: ref('dim_country')
                 field: country_sk
+
+  - name: dim_team
+    columns:
+      - name: league_sk
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_league')
+                field: league_sk

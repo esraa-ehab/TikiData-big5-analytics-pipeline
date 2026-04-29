@@ -5,8 +5,8 @@ with dim_player as (
         p.player_name,
         dc.country_sk
         
-    from DEV.DBT_DEV.INT_UNIQUE_PLAYERS as p
-    join PROD.DBT_DEV_MARTS.DIM_COUNTRY as dc
+    from {{ ref('int_unique_players') }} as p
+    join {{ ref('dim_country') }} as dc
         on dc.country_id = p.country_id
 )
 select * from dim_player

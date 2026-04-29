@@ -24,8 +24,8 @@ with int_player as (
     join {{ ref('stg_seasons') }} as szn
         on p.season = szn."season"
     left join {{ ref('stg_positions') }} as pos
-        on pos.position_name = replace(p.main_position, '"', '')
+        on pos.position = replace(p.main_position, '"', '')
     left join {{ ref('stg_positions') }} as pos1
-        on pos1.position_name = replace(p.second_position, '"', '')
+        on pos1.position = replace(p.second_position, '"', '')
 )
 select * from int_player

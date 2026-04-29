@@ -35,6 +35,10 @@ models:
     +materialized: view
     intermediate:
       +materialized: table
+    marts:
+      +database: PROD
+      +schema: marts
+      +materialized: table   
 
 seeds:
   tikidata:

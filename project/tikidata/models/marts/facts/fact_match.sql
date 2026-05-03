@@ -32,7 +32,7 @@ with fact_match as (
             on f1.formation_id = m.team_formation_id
         join {{ ref('dim_formation') }} f2
             on f2.formation_id = m.opponent_formation_id
-        join {{ ref('dim_player') }} p
+        join {{ ref('dim_unique_player') }} p
             on p.player_id = m.captain_id
 )
 

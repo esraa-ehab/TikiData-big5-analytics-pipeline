@@ -1,9 +1,3 @@
-{{
-  config(
-    materialized = 'view'
-    )
-}}
-
 with stg_league as (
     select distinct
         "League_id" as league_id,

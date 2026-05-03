@@ -1,9 +1,3 @@
-{{
-  config(
-    materialized = 'view'
-    )
-}}
-
 with stg_unique_players as (
     select distinct "Player" as player_name, "Nation" as nation_id
     from {{ source('RAW', 'raw_players') }}

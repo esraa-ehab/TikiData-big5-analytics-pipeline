@@ -1,18 +1,18 @@
 with int_player as (
     select 
-        p.player_stats_id,
         up.player_id,
-        p.rank,
         lg.league_id,
         p.country_id,
         pos.position_id as main_position_id,
         pos1.position_id as second_position_id,
         tm.team_id,
         p.birth_year,
-        to_number(replace(regexp_substr(p.weekly_wages, '£\\s*([0-9,]+)', 1, 1, 'e', 1), ',', '')) as weekly_wage_gbp,
-        to_number(replace(regexp_substr(p.weekly_wages, '€\\s*([0-9,]+)', 1, 1, 'e', 1), ',', '')) as weekly_wage_eur,
-        to_number(replace(regexp_substr(p.weekly_wages, '\\$\\s*([0-9,]+)', 1, 1, 'e', 1), ',', '')) as weekly_wage_usd,
-        szn.season_id
+        p.player_age,
+        to_number(replace(regexp_substr(p.annual_wages, '£\\s*([0-9,]+)', 1, 1, 'e', 1), ',', '')) as annual_wage_gbp,
+        to_number(replace(regexp_substr(p.annual_wages, '€\\s*([0-9,]+)', 1, 1, 'e', 1), ',', '')) as annual_wage_eur,
+        to_number(replace(regexp_substr(p.annual_wages, '\\$\\s*([0-9,]+)', 1, 1, 'e', 1), ',', '')) as annual_wage_usd,
+        szn.season_id,
+        szn.season
         
     from {{ ref('stg_players') }} as p
     join {{ ref('stg_unique_players') }} as up

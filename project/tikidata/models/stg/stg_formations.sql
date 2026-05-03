@@ -1,9 +1,3 @@
-{{
-  config(
-    materialized = 'view'
-    )
-}}
-
 with stg_formations as (
     select 
         'f' || "a" as formation_id,

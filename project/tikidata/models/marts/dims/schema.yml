@@ -10,7 +10,7 @@ models:
                 to: ref('dim_country')
                 field: country_sk
 
-  - name: dim_player
+  - name: dim_unique_player
     columns:
       - name: country_sk
         tests:

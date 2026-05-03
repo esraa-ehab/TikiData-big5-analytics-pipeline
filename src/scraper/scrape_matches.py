@@ -53,4 +53,4 @@ if __name__ == "__main__":
     df = scrape_all_matches()
     out = f"{OUTPUT_DIR}/matches_table.csv"
     df.to_csv(out)
-    print(f"Saved → {out}")
+    print(f"Saved → {out}") 

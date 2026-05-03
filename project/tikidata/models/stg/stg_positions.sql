@@ -1,9 +1,3 @@
-{{
-  config(
-    materialized = 'view'
-    )
-}}
-
 with stg_positions as (
     select distinct replace(main_position, '"', '') as position
     from {{ ref('stg_players') }}

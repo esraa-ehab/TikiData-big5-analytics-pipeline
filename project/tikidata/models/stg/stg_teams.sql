@@ -1,9 +1,3 @@
-{{
-  config(
-    materialized = 'view'
-    )
-}}
-
 with stg_teams as (
     select 
         concat('t', ROW_NUMBER() over(order by "Squad")) as team_id,

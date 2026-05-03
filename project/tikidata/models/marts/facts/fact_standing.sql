@@ -18,9 +18,9 @@ with fact_standing as (
         stnd.attendance,
         
     from {{ ref('int_standings') }} as stnd
-    join {{ ref('dim_player') }} as p
+    join {{ ref('dim_unique_player') }} as p
         on stnd.top_scorer_id = p.player_id
-    join {{ ref('dim_player') }} as gk
+    join {{ ref('dim_unique_player') }} as gk
         on stnd.goalkeeper_id = gk.player_id
     join {{ ref('dim_team') }} as tm
         on stnd.team_id = tm.team_id

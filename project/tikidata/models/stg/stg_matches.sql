@@ -1,9 +1,3 @@
-{{
-  config(
-    materialized = 'view'
-    )
-}}
-
 with stg_matches as (
     select * from {{ source('RAW','raw_matches') }}
 )

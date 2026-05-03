@@ -1,9 +1,3 @@
-{{
-  config(
-    materialized = 'view'
-    )
-}}
-
 with stg_countries as(
     select "Nation_codes" as country_id,
            "Nation" as country_name

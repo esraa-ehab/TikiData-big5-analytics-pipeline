@@ -4,26 +4,50 @@ models:
   - name: dim_league
     columns:
       - name: country_sk
-        tests:
+        data_tests:
           - relationships:
-              arguments: # This is the missing layer
-                to: ref('dim_country')
-                field: country_sk
+              to: ref('dim_country')
+              field: country_sk
 
   - name: dim_unique_player
     columns:
       - name: country_sk
-        tests:
+        data_tests:
           - relationships:
-              arguments:
-                to: ref('dim_country')
-                field: country_sk
+              to: ref('dim_country')
+              field: country_sk
 
   - name: dim_team
     columns:
       - name: league_sk
-        tests:
+        data_tests:
           - relationships:
-              arguments:
-                to: ref('dim_league')
-                field: league_sk
+              to: ref('dim_league')
+              field: league_sk
+
+  - name: dim_player
+    columns:
+      - name: team_sk
+        data_tests:
+          - relationships:
+              to: ref('dim_team')
+              field: team_sk
+
+      - name: main_position_sk
+        data_tests:
+          - relationships:
+              to: ref('dim_position')
+              field: position_sk
+
+      - name: second_position_sk
+        data_tests:
+          - relationships:
+              to: ref('dim_position')
+              field: position_sk
+              where: second_position_sk is not null
+
+      - name: country_sk
+        data_tests:
+          - relationships:
+              to: ref('dim_country')
+              field: country_sk

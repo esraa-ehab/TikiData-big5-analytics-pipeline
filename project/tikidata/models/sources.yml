@@ -28,6 +28,3 @@ sources:
 
       - name: raw_teams
         identifier: teams_table
-
-      - name: raw_positions
-        identifier: stg_positions

@@ -5,8 +5,8 @@ with dim_team as (
         t.team_name,
         lg.league_sk
         
-    from DEV.DBT_DEV.INT_TEAMS as t
-    join PROD.DBT_DEV_MARTS.DIM_LEAGUE as lg
+    from {{ ref('int_teams') }} as t
+    join {{ ref('dim_league') }} as lg
         on t.league_id = lg.league_id
 )
 select * from dim_team

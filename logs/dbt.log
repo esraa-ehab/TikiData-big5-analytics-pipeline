@@ -424,3 +424,16 @@ Runtime Error
 {"data":{},"info":{"category":"","code":"","extra":{},"invocation_id":"019df40d-924d-70f0-95ec-23eb2bff5839","level":"debug","msg":"No active cloud project configured, skipping remote license","name":"Generic","pid":13311,"thread":"tokio-rt-worker","ts":"2026-05-04T17:33:43.413751Z"}}
 {"data":{"columns":[],"is_inline":true,"node_name":"license_info","output_format":"json","preview":"{\n  \"status\": \"not_found\",\n  \"licensing_enabled\": true\n}","unique_id":"license.info"},"info":{"category":"","code":"Q041","extra":{},"invocation_id":"019df40d-924d-70f0-95ec-23eb2bff5839","level":"info","msg":"{\n  \"status\": \"not_found\",\n  \"licensing_enabled\": true\n}","name":"ShowNode","pid":13311,"thread":"tokio-rt-worker","ts":"2026-05-04T17:33:43.415301Z"}}
 {"data":{"completed_at":"2026-05-04T17:33:44.103198Z","elapsed":0.6978789567947388,"success":true},"info":{"category":"","code":"Q039","extra":{},"invocation_id":"019df40d-924d-70f0-95ec-23eb2bff5839","level":"info","msg":"\n==================== Execution Summary =====================\nFinished 'license' successfully [697ms]","name":"CommandCompleted","pid":13311,"thread":"tokio-rt-worker","ts":"2026-05-04T17:33:44.104817Z"}}
+[0m23:13:20.828846 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 23:13:20.861538 | 7f8d1e52-6560-4ff7-9071-7ab77e797635 ==============================
+[0m23:13:20.861538 [info ] [MainThread]: Running with dbt=1.11.8
+[0m23:13:20.862543 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\bodyk\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt docs generate', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m23:13:20.862543 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path D:\epl-analytics\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m23:13:20.865088 [debug] [MainThread]: Command `dbt docs generate` failed at 23:13:20.864067 after 0.13 seconds
+[0m23:13:20.865088 [debug] [MainThread]: Flushing usage events

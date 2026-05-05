@@ -38,11 +38,11 @@ final_timeline as (
 joined as (
 select
     {{ dbt_utils.generate_surrogate_key(['ft.player_id', 'ft.team_id', 'ft.season']) }} as player_sk,
+    unqp.unique_player_sk,
     ft.player_id,
     dt.team_sk,
     dp.position_sk as main_position_sk,
     ds.position_sk as second_position_sk,
-    dc.country_sk,
     dl.league_sk,
     player_age as start_age,
     coalesce(next_change_season - 1, (select max(season) from cleaned)) - birth_year as end_age,
@@ -56,5 +56,6 @@ left join {{ ref('dim_position') }} dp on ft.main_position_id = dp.position_id
 left join {{ ref('dim_position') }} ds  on ft.second_position_id = ds.position_id 
 left join {{ ref('dim_country') }} dc  on ft.country_id = dc.country_id
 left join {{ ref('dim_league') }} dl on dl.league_id = ft.league_id
+left join {{ ref('dim_unique_player' )}} unqp on ft.player_id = unqp.player_id
 )
 select * from joined

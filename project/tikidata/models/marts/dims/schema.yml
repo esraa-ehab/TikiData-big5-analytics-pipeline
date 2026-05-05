@@ -51,3 +51,9 @@ models:
           - relationships:
               to: ref('dim_country')
               field: country_sk
+
+      - name: unique_player_sk
+        data_tests:
+          - relationships:
+              to: ref('dim_unique_player')
+              field: unique_player_sk

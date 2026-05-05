@@ -1,6 +1,6 @@
 with dim_unique_player as (
     select 
-        {{ dbt_utils.generate_surrogate_key(['player_id', 'player_name']) }} as player_sk,
+        {{ dbt_utils.generate_surrogate_key(['player_id', 'player_name']) }} as  unique_player_sk,
         p.player_id,
         p.player_name,
         dc.country_sk

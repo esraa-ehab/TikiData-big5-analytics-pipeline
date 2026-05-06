@@ -2,7 +2,7 @@ with fact_standing as (
     select 
         {{ dbt_utils.generate_surrogate_key(['standing_id']) }} as standings_sk,
         lg.league_sk,
-        szn.season_sk,
+        szn.season,
         tm.team_sk,
         p.player_sk as top_scorer_sk,
         gk.player_sk as goalkeaper_sk,
@@ -18,13 +18,13 @@ with fact_standing as (
         stnd.attendance,
         
     from {{ ref('int_standings') }} as stnd
-    join {{ ref('dim_unique_player') }} as p
+    join {{ ref('dim_player') }} as p
         on stnd.top_scorer_id = p.player_id
-    join {{ ref('dim_unique_player') }} as gk
+    join {{ ref('dim_player') }} as gk
         on stnd.goalkeeper_id = gk.player_id
     join {{ ref('dim_team') }} as tm
         on stnd.team_id = tm.team_id
-    join {{ ref('dim_season') }} as szn
+    join {{ ref('int_seasons') }} as szn
         on stnd.season_id = szn.season_id
     join {{ ref('dim_league') }} as lg
         on stnd.league_id = lg.league_id

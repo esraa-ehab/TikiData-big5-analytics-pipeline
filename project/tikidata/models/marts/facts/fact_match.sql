@@ -3,11 +3,11 @@ with fact_match as (
         {{ dbt_utils.generate_surrogate_key(['match_id']) }} as match_sk,
         d.date_sk as date_sk,
         l.league_sk as league_sk,
-        s.season_sk as season_sk,
+        s.season as season,
         t1.team_sk as team_sk,
         t2.team_sk as opponent_sk,
-        f1.formation_sk as formation_sk,
-        f2.formation_sk as opp_formation_sk,
+        f1.formation as formation,
+        f2.formation as opp_formation,
         p.player_sk as captain_sk,
         cast(m.match_time as time) as time,
         m.round as round,
@@ -22,17 +22,17 @@ with fact_match as (
             on d.full_date = m.match_date
         join {{ ref('dim_league') }} l
             on l.league_id = m.league_id
-        join {{ ref('dim_season') }} s
+        join {{ ref('int_seasons') }} s
             on s.season_id = m.season_id
         join {{ ref('dim_team') }} t1
             on t1.team_id = m.team_id
         join {{ ref('dim_team') }} t2
             on t2.team_id = m.opponent_team_id
-        join {{ ref('dim_formation') }} f1
+        join {{ ref('int_formations') }} f1
             on f1.formation_id = m.team_formation_id
-        join {{ ref('dim_formation') }} f2
+        join {{ ref('int_formations') }} f2
             on f2.formation_id = m.opponent_formation_id
-        join {{ ref('dim_unique_player') }} p
+        join {{ ref('dim_player') }} p
             on p.player_id = m.captain_id
 )
 

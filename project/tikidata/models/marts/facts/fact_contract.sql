@@ -15,7 +15,7 @@ joined as (
         {{ dbt_utils.generate_surrogate_key(['b.player_id', 'b.team_id', 'b.season']) }} as contract_sk,
         dpl.player_sk,
         dt.team_sk,
-        dszn.season_sk,
+        b.season,
         dp.position_sk as main_position_sk,
         ds.position_sk as second_position_sk,
         b.annual_wage_eur,
@@ -26,7 +26,6 @@ joined as (
                                         and b.season >= dpl.start_season
                                         and b.season <= dpl.end_season
     left join {{ ref('dim_team') }} dt on b.team_id = dt.team_id
-    left join {{ ref('dim_season') }} dszn on b.season = dszn.season
     left join {{ ref('dim_position') }} dp   on b.main_position_id = dp.position_id
     left join {{ ref('dim_position') }} ds   on b.second_position_id = ds.position_id
 )

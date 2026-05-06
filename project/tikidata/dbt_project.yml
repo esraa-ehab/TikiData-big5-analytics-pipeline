@@ -38,7 +38,13 @@ models:
     marts:
       +database: PROD
       +schema: marts
-      +materialized: table   
+      +materialized: table
+      dims:
+        +materialized: table
+        +persist_constraints: true
+      facts:
+        +materialized: table
+        +persist_constraints: true
 
 seeds:
   tikidata:

@@ -1,45 +1,190 @@
 version: 2
 
 models:
+  # ─────────────────────────────────────────────
+  # Leaf dimensions (no FK dependencies)
+  # ─────────────────────────────────────────────
+  - name: dim_date
+    columns:
+      - name: date_sk
+        constraints:
+          - type: primary_key
+            enforced: true
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_season
+    columns:
+      - name: season_sk
+        constraints:
+          - type: primary_key
+            enforced: true
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_country
+    columns:
+      - name: country_sk
+        constraints:
+          - type: primary_key
+            enforced: true
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_position
+    columns:
+      - name: position_sk
+        constraints:
+          - type: primary_key
+            enforced: true
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_formation
+    columns:
+      - name: formation_sk
+        constraints:
+          - type: primary_key
+            enforced: true
+        data_tests:
+          - unique
+          - not_null
+
+  # ─────────────────────────────────────────────
+  # dim_league  →  dim_country
+  # ─────────────────────────────────────────────
   - name: dim_league
     columns:
-      - name: country_sk
+      - name: league_sk
+        constraints:
+          - type: primary_key
+            enforced: true
         data_tests:
+          - unique
+          - not_null
+
+      - name: country_sk
+        constraints:
+          - type: foreign_key
+            to: ref('dim_country')
+            to_columns: ['country_sk']
+            enforced: true
+        data_tests:
+          - not_null
           - relationships:
               to: ref('dim_country')
               field: country_sk
 
+  # ─────────────────────────────────────────────
+  # dim_unique_player  →  dim_country
+  # ─────────────────────────────────────────────
   - name: dim_unique_player
     columns:
+      - name: unique_player_sk
+        constraints:
+          - type: primary_key
+            enforced: true
+        data_tests:
+          - unique
+          - not_null
+
       - name: country_sk
+        constraints:
+          - type: foreign_key
+            to: ref('dim_country')
+            to_columns: ['country_sk']
+            enforced: true
         data_tests:
           - relationships:
               to: ref('dim_country')
               field: country_sk
 
+  # ─────────────────────────────────────────────
+  # dim_team  →  dim_league
+  # ─────────────────────────────────────────────
   - name: dim_team
     columns:
-      - name: league_sk
+      - name: team_sk
+        constraints:
+          - type: primary_key
+            enforced: true
         data_tests:
+          - unique
+          - not_null
+
+      - name: league_sk
+        constraints:
+          - type: foreign_key
+            to: ref('dim_league')
+            to_columns: ['league_sk']
+            enforced: true
+        data_tests:
+          - not_null
           - relationships:
               to: ref('dim_league')
               field: league_sk
 
+  # ─────────────────────────────────────────────
+  # dim_player  →  dim_unique_player, dim_team,
+  #                dim_position (x2), dim_country,
+  #                dim_league
+  # ─────────────────────────────────────────────
   - name: dim_player
     columns:
-      - name: team_sk
+      - name: player_sk
+        constraints:
+          - type: primary_key
+            enforced: true
         data_tests:
+          - unique
+          - not_null
+
+      - name: unique_player_sk
+        constraints:
+          - type: foreign_key
+            to: ref('dim_unique_player')
+            to_columns: ['unique_player_sk']
+            enforced: true
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_unique_player')
+              field: unique_player_sk   # fix: was 'player_sk'
+
+      - name: team_sk
+        constraints:
+          - type: foreign_key
+            to: ref('dim_team')
+            to_columns: ['team_sk']
+            enforced: true
+        data_tests:
+          - not_null
           - relationships:
               to: ref('dim_team')
               field: team_sk
 
       - name: main_position_sk
+        constraints:
+          - type: foreign_key
+            to: ref('dim_position')
+            to_columns: ['position_sk']
+            enforced: true
         data_tests:
+          - not_null
           - relationships:
               to: ref('dim_position')
               field: position_sk
 
       - name: second_position_sk
+        constraints:
+          - type: foreign_key
+            to: ref('dim_position')
+            to_columns: ['position_sk']
+            enforced: true
         data_tests:
           - relationships:
               to: ref('dim_position')
@@ -47,13 +192,24 @@ models:
               where: second_position_sk is not null
 
       - name: country_sk
+        constraints:
+          - type: foreign_key
+            to: ref('dim_country')
+            to_columns: ['country_sk']
+            enforced: true
         data_tests:
           - relationships:
               to: ref('dim_country')
               field: country_sk
 
-      - name: unique_player_sk
+      # fix: league_sk FK was missing entirely — present in diagram
+      - name: league_sk
+        constraints:
+          - type: foreign_key
+            to: ref('dim_league')
+            to_columns: ['league_sk']
+            enforced: true
         data_tests:
           - relationships:
-              to: ref('dim_unique_player')
-              field: unique_player_sk
+              to: ref('dim_league')
+              field: league_sk

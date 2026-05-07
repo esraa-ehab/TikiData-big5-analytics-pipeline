@@ -5,6 +5,7 @@ with fact_standing as (
         szn.season,
         tm.team_sk,
         p.player_sk as top_scorer_sk,
+        stnd.top_scorer_goals,
         gk.player_sk as goalkeaper_sk,
         stnd.rank,
         stnd.points,

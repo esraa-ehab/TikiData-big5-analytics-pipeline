@@ -41,10 +41,6 @@ def create_teams(standings_path: str | None = None) -> pd.DataFrame:
     data = pd.read_csv(path)
 
     squad_data = data[["Squad", "League"]].drop_duplicates()
-
-    squad_data["unique_team_id"] = squad_data["Squad"].apply(
-    lambda x: int(hashlib.sha256(x.encode()).hexdigest(), 16) % 10**8
-    )
     return squad_data
 
 

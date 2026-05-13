@@ -4,7 +4,7 @@ Shared configuration: league definitions and season range.
 
 # Used by create_leagues() — order must match across all three lists
 LEAGUE_IDS      = ["PL", "LL", "SA", "BL1", "FL1"]
-LEAGUE_NAMES_DW = ["Premier League", "La Liga", "Serie A", "Bundsliga", "Ligue 1"]
+LEAGUE_NAMES_DW = ["Premier League", "La Liga", "Serie A", "Bundesliga", "Ligue 1"]
 COUNTRIES       = ["England", "Spain", "Italy", "Germany", "France"]
 
 LEAGUES = {

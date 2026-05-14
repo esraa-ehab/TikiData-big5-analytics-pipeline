@@ -14,10 +14,10 @@ with int_matches as (select
     t2.team_id as opponent_team_id,
     m.round,
     m.venue,
-    m."goals_scored" as goals_scored,
-    m."goals_conceded" as goals_conceded,
+    split_part(m.goals_scored, ' ', 1) as goals_scored,
+    split_part(m.goals_conceded, ' ', 1) as goals_conceded,
     m.possession,
-    m."Attendance" as attendance,
+    m.attendance as attendance,
     up.player_id as captain_id,
     f1.formation_id as team_formation_id,
     f2.formation_id as opponent_formation_id

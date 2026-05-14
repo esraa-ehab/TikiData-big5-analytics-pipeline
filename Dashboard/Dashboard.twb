@@ -4239,8 +4239,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='46' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='45' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000' />
+            <zone h='100000' id='48' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='47' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000' />
               <zone-style>
                 <format attr='border-color' value='#000000' />
                 <format attr='border-style' value='none' />
@@ -4568,8 +4568,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='2150' minheight='2150' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='169' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98400' id='168' param='vert' type-v2='layout-flow' w='98400' x='800' y='800'>
+            <zone h='100000' id='171' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98400' id='170' param='vert' type-v2='layout-flow' w='98400' x='800' y='800'>
                 <zone forceUpdate='true' h='3700' id='3' type-v2='text' w='97600' x='1000' y='1300'>
                   <formatted-text>
                     <run fontcolor='#ffffff' fontname='Radikal' fontsize='14'>         FOOTANALYTICA</run>
@@ -4956,8 +4956,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1500' minheight='1500' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='169' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98400' id='168' param='vert' type-v2='layout-flow' w='98400' x='800' y='800'>
+            <zone h='100000' id='171' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98400' id='170' param='vert' type-v2='layout-flow' w='98400' x='800' y='800'>
                 <zone forceUpdate='true' h='3700' id='3' type-v2='text' w='97600' x='1000' y='1300'>
                   <formatted-text>
                     <run fontcolor='#ffffff' fontname='Radikal' fontsize='14'>         FOOTANALYTICA</run>
@@ -5431,8 +5431,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='2150' minheight='2150' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='156' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='155' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+            <zone h='100000' id='158' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='157' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone forceUpdate='true' h='3700' id='3' type-v2='text' w='97600' x='1000' y='1300'>
                   <formatted-text>
                     <run fontcolor='#ffffff' fontname='Radikal' fontsize='14'>         FOOTANALYTICA</run>
@@ -5984,8 +5984,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='2150' minheight='2150' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='156' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='155' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+            <zone h='100000' id='158' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='157' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone forceUpdate='true' h='3700' id='3' type-v2='text' w='97600' x='1000' y='1300'>
                   <formatted-text>
                     <run fontcolor='#ffffff' fontname='Radikal' fontsize='14'>         FOOTANALYTICA</run>

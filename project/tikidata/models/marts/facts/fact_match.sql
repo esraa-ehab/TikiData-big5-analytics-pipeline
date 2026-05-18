@@ -8,14 +8,14 @@ with fact_match as (
         t2.team_sk as opponent_sk,
         f1.formation as formation,
         f2.formation as opp_formation,
-        p.player_sk as captain_sk,
+        p.player_name as captain_name,
         cast(m.match_time as time) as time,
         m.round as round,
         m.venue as venue,
         cast(m.goals_scored as int) as goals_scored,
         cast(m.goals_conceded as int) as goals_conceded,
         m.possession as possession,
-        m.attendance as attendence
+        m.attendance as attendance
     from
         {{ ref('int_matches') }} as m
         join {{ ref('dim_date') }} d
@@ -32,7 +32,7 @@ with fact_match as (
             on f1.formation_id = m.team_formation_id
         join {{ ref('int_formations') }} f2
             on f2.formation_id = m.opponent_formation_id
-        join {{ ref('dim_player') }} p
+        join {{ ref('dim_unique_player') }} p
             on p.player_id = m.captain_id
 )
 

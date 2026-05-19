@@ -226,6 +226,7 @@ dagster dev
 
 `Wages` `Contracts` `Transfer Fees` `Salary Distribution`
 
+<img src="Documentation\Dashboard Overview\Player Contracts.png" alt="Match Analysis Dashboard" width="800"/>
 </details>
 
 ---

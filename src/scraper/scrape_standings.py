@@ -1,5 +1,6 @@
 """
 Scrape league standings from FBref.
+Scrape league standings from FBref.
 """
 
 import pandas as pd
@@ -17,6 +18,7 @@ def scrap_standing(driver, url: str, league: str, season: int) -> pd.DataFrame:
 
     wait = WebDriverWait(driver, 60)
     table = wait.until(
+        EC.presence_of_element_located((By.CLASS_NAME, "stats_table"))
         EC.presence_of_element_located((By.CLASS_NAME, "stats_table"))
     )
 
@@ -39,8 +41,14 @@ def scrap_standing(driver, url: str, league: str, season: int) -> pd.DataFrame:
     standings_df["League"] = league
     return standings_df
 
+    standings_df = pd.DataFrame(rows, columns=column_names)
+    standings_df["Season"] = season
+    standings_df["League"] = league
+    return standings_df
 
 
+
+def scrape_all_standings() -> pd.DataFrame:
 def scrape_all_standings() -> pd.DataFrame:
     driver = create_driver(version_main=147)
     leagues_dict = {}
@@ -53,7 +61,10 @@ def scrape_all_standings() -> pd.DataFrame:
                     f"https://fbref.com/en/comps/{league_id}"
                     f"/{season-1}-{season}"
                     f"/{season-1}-{season}-{league_slug}-Stats"
+                    f"/{season-1}-{season}"
+                    f"/{season-1}-{season}-{league_slug}-Stats"
                 )
+                data = scrap_standing(driver, url, league_name, season)
                 data = scrap_standing(driver, url, league_name, season)
                 leagues_dict[f"{league_name}{season}"] = data
                 print(f"Scraping {league_name} {season} done")

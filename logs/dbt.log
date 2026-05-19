@@ -512,3 +512,16 @@ Runtime Error
 {"data":{},"info":{"category":"","code":"","extra":{},"invocation_id":"019e3ffc-a0e0-7381-adbd-c9c8da0af764","level":"debug","msg":"No active cloud project configured, skipping remote license","name":"Generic","pid":79824,"thread":"tokio-rt-worker","ts":"2026-05-19T11:26:21.452143Z"}}
 {"data":{"columns":[],"is_inline":true,"node_name":"license_info","output_format":"json","preview":"{\n  \"status\": \"not_found\",\n  \"licensing_enabled\": true\n}","unique_id":"license.info"},"info":{"category":"","code":"Q041","extra":{},"invocation_id":"019e3ffc-a0e0-7381-adbd-c9c8da0af764","level":"info","msg":"{\n  \"status\": \"not_found\",\n  \"licensing_enabled\": true\n}","name":"ShowNode","pid":79824,"thread":"tokio-rt-worker","ts":"2026-05-19T11:26:21.453463Z"}}
 {"data":{"completed_at":"2026-05-19T11:26:21.891177Z","elapsed":0.4497009813785553,"success":true},"info":{"category":"","code":"Q039","extra":{},"invocation_id":"019e3ffc-a0e0-7381-adbd-c9c8da0af764","level":"info","msg":"\n==================== Execution Summary =====================\nFinished 'license' successfully [449ms]","name":"CommandCompleted","pid":79824,"thread":"tokio-rt-worker","ts":"2026-05-19T11:26:21.892768Z"}}
+[0m01:23:58.348452 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 01:23:58.396367 | 59272fc6-b548-495e-ac27-0dcad08b8f75 ==============================
+[0m01:23:58.396367 [info ] [MainThread]: Running with dbt=1.11.8
+[0m01:23:58.397363 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\bodyk\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt docs generate', 'use_colors': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m01:23:58.398363 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path D:\TikiData-big5-analytics-pipeline\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m01:23:58.400361 [debug] [MainThread]: Command `dbt docs generate` failed at 01:23:58.400361 after 0.19 seconds
+[0m01:23:58.401360 [debug] [MainThread]: Flushing usage events

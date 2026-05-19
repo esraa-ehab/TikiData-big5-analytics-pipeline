@@ -1,5 +1,11 @@
 # TikiData Big 5 Analytics Pipeline
-
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white)
+![dbt](https://img.shields.io/badge/dbt-1.0+-FF694B?style=flat&logo=dbt&logoColor=white)
+![Snowflake](https://img.shields.io/badge/Snowflake-Cloud_DW-29B5E8?style=flat&logo=snowflake&logoColor=white)
+![Selenium](https://img.shields.io/badge/Selenium-Scraping-43B02A?style=flat&logo=selenium&logoColor=white)
+![Tableau](https://img.shields.io/badge/Tableau-Dashboard-E97627?style=flat&logo=tableau&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Active_Development-brightgreen?style=flat)
+![Last Updated](https://img.shields.io/badge/Last_Updated-May_2026-blue?style=flat)
 ## Overview
 
 **TikiData Big 5 Analytics Pipeline** is a comprehensive data engineering solution that collects, transforms, and analyzes football (soccer) data from the world's top five leagues. It aggregates player statistics, team performance, match results, and league standings to provide actionable insights for football analytics.
@@ -33,7 +39,6 @@ This project automates the complete lifecycle of football data:
 
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
-| **Orchestration** | Dagster | Schedules and monitors data pipelines |
 | **Transformation** | dbt (Data Build Tool) | SQL-based data transformations |
 | **Data Warehouse** | Snowflake | Centralized cloud data storage |
 | **Web Scraping** | Selenium, SoccerData | Extracts data from FBref |
@@ -42,83 +47,18 @@ This project automates the complete lifecycle of football data:
 
 ---
 
-## Architecture
+## Data Architecture
+<img src="Documentation\Diagrams\Data Architecture.png" alt="Description">
 
-### Data Flow Diagram
-
-```
-
-
-### Medallion Architecture
-
-The project follows the medallion (bronze-silver-gold) data architecture pattern:
-
-#### 🥉 **Staging Layer** (`stg_*`)
-Raw data ingested from source systems with minimal transformations.
-- `stg_standings` - League standings tables
-- `stg_players` - Player information and wages
-- `stg_matches` - Match-level statistics
-- `stg_teams` - Team reference data
-- `stg_leagues` - League definitions
-- `stg_seasons` - Season identifiers
-- `stg_formations` - Formation types
-- `stg_positions` - Player positions
-
-#### 🥈 **Intermediate Layer** (`int_*`)
-Business logic applied, data cleaned and aggregated.
-- `int_standings` - Standardized standings with calculated metrics
-- `int_players` - Player profiles with derived attributes
-- `int_matches` - Match analytics
-- `int_teams` - Team master data
-- `int_leagues` - League master data
-- `int_unique_players` - Deduplicated player records
-
-#### 🥇 **Mart Layer** (`marts/dims/` and `marts/facts/`)
-Analytics-ready tables for BI tools and reporting.
-
-**Dimensions (Reference Tables):**
-- `dim_league` - League master dimension
-- `dim_team` - Team dimension with team IDs and metadata
-- `dim_player` - Player dimension with career information
-- `dim_unique_player` - Unique player identifier for deduplication
-- `dim_date` - Date dimension for time-based analysis
-
-**Facts (Event/Measure Tables):**
-- `fact_standing` - League standings facts (positions, points, goals)
-- `fact_match` - Match-level facts (scores, formations, performances)
-- `fact_contract` - Player contract and wage facts
-
----
 
 ## Entity Relationship Diagram (ERD)
+<img src="Documentation\Diagrams\ERD.jpg" alt="Description">
 
-```
-[Placeholder: Add ERD Diagram]
 
-Key Relationships:
-- Matches connect to Teams and Leagues via foreign keys
-- Players relate to Teams and Seasons
-- Standings connect to Teams, Leagues, and Seasons
-- Contracts link Players to Teams and Seasons
-```
-
----
 
 ## Dimensional Data Model
+<img src="Documentation\Diagrams\Dimensional Model.jpg" alt="Description">
 
-```
-[Placeholder: Add Dimensional Model Diagram]
-
-Star Schema Example:
-
-                    dim_league
-                        |
-        ┌───────────────┼───────────────┐
-        |               |               |
-    dim_date        fact_standing   dim_team
-                        |
-                    dim_season
-```
 
 ### Key Dimensions
 
@@ -266,33 +206,62 @@ dagster dev
 
 ## Dashboard Preview
 
-```
-[Placeholder: Add Dashboard Screenshot]
+<details>
+<summary>📊 League Overview</summary>
 
-Key Dashboards:
-- League Performance Dashboard - Rankings, points, and trends
-- Player Analytics Dashboard - Wages, performance, and comparisons
-- Match Analysis Dashboard - Formation, goals, and team statistics
-- Seasonal Trends Dashboard - Historical performance patterns
-```
+> Tracks standings, points, and ranking trends across all Big 5 leagues by season.
+
+`Standings` `Points` `Rankings` `Seasons`
+
+<img src="Documentation\Dashboard Overview\League Overview.png" alt="League Overview Dashboard" width="800"/>
+
+</details>
+
+---
+
+<details>
+<summary>💰 Player Contracts</summary>
+
+> Visualizes player wages, contract durations, and salary distribution across teams and leagues.
+
+`Wages` `Contracts` `Transfer Fees` `Salary Distribution`
+
+</details>
+
+---
+
+<details>
+<summary>⚽ Match Analysis</summary>
+
+> Breaks down match statistics including possession, shots, formations, and goal performance.
+
+`Possession` `Shots` `Formations` `Goals`
+
+<img src="Documentation\Dashboard Overview\Match Analysis.png" alt="Match Analysis Dashboard" width="800"/>
+
+</details>
 
 ---
 
 ## Data Pipeline Execution Flow
 
-```
-[Placeholder: Add Execution Flow Diagram]
-
-Sequence:
-1. FBref → Python Scrapers (standings, players, matches)
-2. CSV/Raw Tables → dbt Staging Models
-3. Staging → dbt Intermediate Models (transformations)
-4. Intermediate → dbt Mart Models (dimensions + facts)
-5. Mart Tables → BI Tools (Tableau, Power BI)
-6. BI Tools → Dashboards & Reports
-```
+### Fact Match Data Lineage
+<img src="Documentation\Data Lineage\Fact Match.svg" alt="Description">
 
 ---
+
+### Fact Standing Data Lineage
+<img src="Documentation\Data Lineage\Fact Standing.svg" alt="Description">
+
+---
+
+
+### Fact Contract Data Lineage
+<img src="Documentation\Data Lineage\Fact Contract.svg" alt="Description">
+
+---
+
+
 
 ## Key Data Sources
 
@@ -440,7 +409,7 @@ For questions, issues, or feature requests, please:
 
 ---
 
-## Appendix: Visual Placeholders
+<!-- ## Appendix: Visual Placeholders
 
 ### 1. Data Architecture Diagram
 ```
@@ -483,7 +452,7 @@ Shows: Key metrics, charts, and visualizations
 Shows: Pipeline execution time, data freshness, transformation performance
 ```
 
----
+--- -->
 
 **Last Updated:** May 2026  
 **Project Status:** Active Development

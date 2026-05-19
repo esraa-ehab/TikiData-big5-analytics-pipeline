@@ -48,16 +48,16 @@ This project automates the complete lifecycle of football data:
 ---
 
 ## Data Architecture
-<img src="Documentation\Diagrams\Data Architecture.png" alt="Description">
+<img src="Documentation\Diagrams\Data Architecture.png" alt="Description" width="600"/>
 
 
 ## Entity Relationship Diagram (ERD)
-<img src="Documentation\Diagrams\ERD.jpg" alt="Description">
+<img src="Documentation\Diagrams\ERD.jpg" alt="Description" width="600"/>
 
 
 
 ## Dimensional Data Model
-<img src="Documentation\Diagrams\Dimensional Model.jpg" alt="Description">
+<img src="Documentation\Diagrams\Dimensional Model.jpg" alt="Description" width="600"/>
 
 
 ### Key Dimensions
@@ -213,7 +213,7 @@ dagster dev
 
 `Standings` `Points` `Rankings` `Seasons`
 
-<img src="Documentation\Dashboard Overview\League Overview.png" alt="League Overview Dashboard" width="800"/>
+<img src="Documentation\Dashboard Overview\League Overview.png" alt="League Overview Dashboard" width="600"/>
 
 </details>
 
@@ -226,7 +226,7 @@ dagster dev
 
 `Wages` `Contracts` `Transfer Fees` `Salary Distribution`
 
-<img src="Documentation\Dashboard Overview\Player Contracts.png" alt="Match Analysis Dashboard" width="800"/>
+<img src="Documentation\Dashboard Overview\Player Contracts.png" alt="Match Analysis Dashboard" width="600"/>
 </details>
 
 ---
@@ -238,7 +238,7 @@ dagster dev
 
 `Possession` `Shots` `Formations` `Goals`
 
-<img src="Documentation\Dashboard Overview\Match Analysis.png" alt="Match Analysis Dashboard" width="800"/>
+<img src="Documentation\Dashboard Overview\Match Analysis.png" alt="Match Analysis Dashboard" width="600"/>
 
 </details>
 
@@ -247,18 +247,18 @@ dagster dev
 ## Data Pipeline Execution Flow
 
 ### Fact Match Data Lineage
-<img src="Documentation\Data Lineage\Fact Match.svg" alt="Description">
+<img src="Documentation\Data Lineage\Fact Match.svg" alt="Description" width="600"/>
 
 ---
 
 ### Fact Standing Data Lineage
-<img src="Documentation\Data Lineage\Fact Standing.svg" alt="Description">
+<img src="Documentation\Data Lineage\Fact Standing.svg" alt="Description" width="600"/>
 
 ---
 
 
 ### Fact Contract Data Lineage
-<img src="Documentation\Data Lineage\Fact Contract.svg" alt="Description">
+<img src="Documentation\Data Lineage\Fact Contract.svg" alt="Description" width="600"/>
 
 ---
 
@@ -409,51 +409,6 @@ For questions, issues, or feature requests, please:
 - [ ] Expand dashboard capabilities with predictive analytics
 
 ---
-
-<!-- ## Appendix: Visual Placeholders
-
-### 1. Data Architecture Diagram
-```
-[INSERT HIGH-LEVEL ARCHITECTURE DIAGRAM HERE]
-Shows: Data sources → Scrapers → Staging → Intermediate → Marts → BI Tools
-```
-
-### 2. Entity Relationship Diagram (ERD)
-```
-[INSERT DETAILED ERD HERE]
-Shows: All tables, relationships, and primary/foreign keys
-```
-
-### 3. Dimensional Data Model
-```
-[INSERT STAR SCHEMA DIAGRAM HERE]
-Shows: Fact table in center with dimension tables around it
-```
-
-### 4. Pipeline Execution Flow
-```
-[INSERT DAGSTER DAG DIAGRAM HERE]
-Shows: Task dependencies and execution order
-```
-
-### 5. Sample Dashboard
-```
-[INSERT TABLEAU/POWER BI DASHBOARD SCREENSHOT HERE]
-Shows: Key metrics, charts, and visualizations
-```
-
-### 6. Data Volume Trends
-```
-[INSERT CHART SHOWING DATA GROWTH OVER TIME]
-```
-
-### 7. System Performance Metrics
-```
-[INSERT PERFORMANCE DASHBOARD SCREENSHOT]
-Shows: Pipeline execution time, data freshness, transformation performance
-```
-
---- -->
 
 **Last Updated:** May 2026  
 **Project Status:** Active Development

@@ -294,7 +294,7 @@ Configuration file: `src/scraper/config.py`
 
 ### Output Locations
 
-- **Raw Scraped Data:** `Scrapped_data/` (CSV files)
+- **Raw Scraped Data:** `project\tikidata\seeds` (CSV files)
 - **Transformed Data:** Snowflake database tables
 - **Warehouse:** PROD database, MARTS schema
 
